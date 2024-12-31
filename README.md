@@ -4,8 +4,7 @@
 
 ## 주요 기능
 
-- 배열 (Array)
-- 연결 리스트 (Linked List)
+- 리스트 (Linked List, Array List)
 - 스택 (Stack)
 - 큐 (Queue)
 - 이진 트리 (Binary Tree)
