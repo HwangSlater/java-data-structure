@@ -1,4 +1,4 @@
-package com.data_structure.linked_list;
+package com.data_structure.linkedlist;
 
 /**
  * DoublyLinkedList는 양쪽 끝과 중간에서 데이터를 추가하거나 제거할 수 있습니다.

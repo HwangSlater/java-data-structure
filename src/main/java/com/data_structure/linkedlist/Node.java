@@ -1,4 +1,4 @@
-package com.data_structure.linked_list;
+package com.data_structure.linkedlist;
 
 /**
  * Node는 데이터를 저장하고, 이전 노드와 다음 노드에 대한 참조를 가집니다.
