@@ -1,38 +1,19 @@
-package com.data_structure;
+package com.data_structure.stack;
+
+import java.util.Arrays;
 
 import com.data_structure.exceptions.StackOverflowException;
 import com.data_structure.exceptions.StackUnderflowException;
 
 /**
- * ArrayStack 클래스는 배열을 사용하여 스택을 구현한 클래스입니다.
+ * 동적 배열 기반 스택 클래스입니다. 이 클래스는 스택의 크기가 고정되어 있지 않으며,
+ * 스택이 가득 차면 내부 배열 크기를 자동으로 확장하여 데이터를 저장합니다.
  * 
- * @param <T> 스택에 저장할 요소의 타입
+ * @param <T> 스택에 저장될 데이터의 타입
  */
-public class ArrayStack<T> {
-    private static final int DEFAULT_CAPACITY = 5; // 기본 스택 용량
-    private Object[] stack; // 스택을 저장할 배열
+public class DynamicArrayStack<T> {
+    private Object[] stack = new Object[10]; // 스택을 저장할 배열
     private int size = 0; // 스택에 현재 저장된 데이터 수
-
-    /**
-     * 기본 생성자 (기본 용량으로 스택을 생성)
-     * 기본 용량은 5로 설정
-     */
-    public ArrayStack() {
-        this(DEFAULT_CAPACITY);
-    }
-
-    /**
-     * 사용자 지정 용량으로 스택을 생성하는 생성자
-     * 
-     * @param capacity 스택의 초기 용량
-     * @throws IllegalArgumentException capacity가 1보다 작은 경우 예외를 던짐
-     */
-    public ArrayStack(int capacity) {
-        if (capacity < 1) {
-            throw new IllegalArgumentException("capacity는 0보다 커야합니다.");
-        }
-        this.stack = new Object[capacity];
-    }
 
     /**
      * 스택의 가장 위에 데이터를 추가합니다.
@@ -41,9 +22,10 @@ public class ArrayStack<T> {
      * @throws StackOverflowException 스택이 가득 차면 예외를 던짐
      */
     public void push(T data) {
-        if (stack.length == size) {
-            throw new StackOverflowException("스택이 가득 찼습니다.");
+        if (size == stack.length) {
+            stack = Arrays.copyOf(stack, size * 2);
         }
+
         stack[size++] = data;
     }
 
@@ -58,6 +40,7 @@ public class ArrayStack<T> {
         if (size == 0) {
             throw new StackUnderflowException("스택이 비어있습니다.");
         }
+
         return (T) stack[--size];
     }
 
@@ -72,6 +55,7 @@ public class ArrayStack<T> {
         if (size == 0) {
             throw new StackUnderflowException("스택이 비어있습니다.");
         }
+
         return (T) stack[size - 1];
     }
 
