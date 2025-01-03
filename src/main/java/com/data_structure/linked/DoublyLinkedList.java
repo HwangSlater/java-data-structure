@@ -1,4 +1,4 @@
-package com.data_structure.linkedlist;
+package com.data_structure.linked;
 
 /**
  * DoublyLinkedList는 양쪽 끝과 중간에서 데이터를 추가하거나 제거할 수 있습니다.
@@ -7,8 +7,8 @@ package com.data_structure.linkedlist;
  */
 
 public class DoublyLinkedList<T> {
-    private Node<T> head; // 리스트의 첫 번째 노드
-    private Node<T> tail; // 리스트의 마지막 노드
+    private Node<T> head = null; // 리스트의 첫 번째 노드
+    private Node<T> tail = null; // 리스트의 마지막 노드
     private int size = 0; // 리스트에 저장된 요소의 개수
 
     /**
